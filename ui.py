@@ -2,6 +2,7 @@
 UNRFavorites (C) 2009 Erik Youngren <artanis.00@gmail.com>
 """
 import os
+import subprocess
 import gtk
 import gtk.glade
 from glib import GError
@@ -61,6 +62,10 @@ class FavoritesManager(SimpleGladeApp):
         favlist = GConfFavs.FavoritesList()
         favlist.replace(new_order)
     
+    def on_wxToolbarBtnRestart_clicked(self, button):
+        subprocess.call(["/usr/bin/killall", "netbook-launcher"])
+        pid = subprocess.Popen(["/usr/bin/netbook-launcher", ""]).pid
+
     def run(self):
         self.wxMain.show_all()
         SimpleGladeApp.run(self)

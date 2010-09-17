@@ -9,13 +9,13 @@
     <child>
       <widget class="GtkVBox" id="wxVbox">
         <property name="visible">True</property>
-        <property name="orientation">vertical</property>
         <child>
           <widget class="GtkToolbar" id="wxToolbar">
             <property name="visible">True</property>
             <child>
               <widget class="GtkToolButton" id="wxToolbarBtnSave">
                 <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Save the current configuration</property>
                 <property name="label" translatable="yes">toolbutton1</property>
                 <property name="use_underline">True</property>
                 <property name="stock_id">gtk-save</property>
@@ -27,12 +27,13 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkToolButton" id="wxToolbarBtnQuit">
+              <widget class="GtkToolButton" id="wxToolbarBtnRestart">
                 <property name="visible">True</property>
+                <property name="tooltip" translatable="yes">Restart netbook-launcher to make changes visible</property>
                 <property name="label" translatable="yes">toolbutton1</property>
                 <property name="use_underline">True</property>
-                <property name="stock_id">gtk-quit</property>
-                <signal name="clicked" handler="gtk_main_quit"/>
+                <property name="stock_id">gtk-execute</property>
+                <signal name="clicked" handler="on_wxToolbarBtnRestart_clicked"/>
               </widget>
               <packing>
                 <property name="expand">False</property>
